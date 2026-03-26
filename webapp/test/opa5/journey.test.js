@@ -1,19 +1,21 @@
 sap.ui.define([
-	"sap/ui/test/opaQunit",
-	"./pages/Main"
-], function (opaTest) {
-	"use strict";
+    "sap/ui/test/opaQunit",
+    "./pages/Main"
+], function (opaTest, Main) {   // ✅ MUST include Main
 
-	QUnit.module("Main Journey");
+    "use strict";
 
-	opaTest("Should see the initial page", function (Given, When, Then) {
-		Given.iStartMyApp();
-		Then.onTheMainPage.iShouldSeeTheAppHeader();
-	});
+    QUnit.module("Main Journey");
 
-	opaTest("Should filter the list on search", function (Given, When, Then) {
-		Given.iStartMyApp(); // 🔥 REQUIRED
-		When.onTheMainPage.iSearchFor("Laptop");
-		Then.onTheMainPage.iShouldSeeOnlyFilteredResults();
-	});
+    opaTest("Should see the initial page", function (Given, When, Then) {
+        Given.iStartMyApp();
+        Then.onTheMainPage.iShouldSeeTheAppHeader();
+    });
+
+    opaTest("Should filter the list on search", function (Given, When, Then) {
+        Given.iStartMyApp(); // ✅ REQUIRED
+        When.onTheMainPage.iSearchFor("Laptop");
+        Then.onTheMainPage.iShouldSeeOnlyFilteredResults();
+    });
+
 });
