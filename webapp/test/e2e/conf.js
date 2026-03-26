@@ -9,11 +9,18 @@ exports.config = {
             reportName: 'uiveri5-results'
         }
     ],
-    capabilities: [{
-        browserName: 'chrome',
-        chromeOptions: {
-            args: ['--headless', '--no-sandbox', '--disable-dev-shm-usage']
-        }
-    }],
+   capabilities: [{
+    browserName: 'chrome',
+    chromeOptions: {
+        // This binary path is standard for Playwright Docker images
+        binary: '/usr/bin/google-chrome', 
+        args: [
+            '--headless',
+            '--no-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-gpu'
+        ]
+    }
+}],
     specs: [ './*.spec.js' ],
 };
