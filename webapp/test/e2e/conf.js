@@ -1,27 +1,19 @@
 exports.config = {
-    profile: 'integration',
+  directConnect: true,
 
-    baseUrl: 'http://localhost:8080/index.html',
+  capabilities: {
+    browserName: 'chrome',
+    chromeOptions: {
+      binary: process.env.CHROME_BIN,   
+      args: [
+        '--no-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-gpu'
+      ]
+    }
+  },
 
-    reporters: [
-        {
-            name: 'junit',
-            reportDir: '.',
-            reportName: 'uiveri5-report'
-        }
-    ],
+  specs: ['./specs/*.js'],
 
-    capabilities: [{
-        browserName: 'chrome',
-        chromeOptions: {
-            args: [
-                '--headless',
-                '--no-sandbox',
-                '--disable-dev-shm-usage',
-                '--disable-gpu'
-            ]
-        }
-    }],
-
-    specs: ['webapp/test/e2e/*.spec.js']
+  framework: 'jasmine'
 };
