@@ -1,7 +1,7 @@
 exports.config = {
     profile: 'integration',
     baseUrl: 'http://localhost:8080/index.html',
-    // REPORTERS ARE DEFINED HERE, NOT IN THE CLI
+
     reporters: [
         {
             name: 'junit',
@@ -9,18 +9,19 @@ exports.config = {
             reportName: 'uiveri5-results'
         }
     ],
-   capabilities: [{
-    browserName: 'chrome',
-    chromeOptions: {
-        // This binary path is standard for Playwright Docker images
-        binary: '/usr/bin/google-chrome', 
-        args: [
-            '--headless',
-            '--no-sandbox',
-            '--disable-dev-shm-usage',
-            '--disable-gpu'
-        ]
-    }
-}],
-    specs: [ './*.spec.js' ],
+
+    capabilities: [{
+        browserName: 'chrome',
+        chromeOptions: {
+            binary: process.env.CHROME_BIN || '/ms-playwright/chromium-1145/chrome-linux/chrome',
+            args: [
+                '--headless',
+                '--no-sandbox',
+                '--disable-dev-shm-usage',
+                '--disable-gpu'
+            ]
+        }
+    }],
+
+    specs: [ './webapp/test/e2e/*.spec.js' ],
 };
