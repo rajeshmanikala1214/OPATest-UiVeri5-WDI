@@ -1,0 +1,20 @@
+{
+  "name": "my-sapui5-app",
+  "version": "1.0.0",
+  "main": "index.js",
+ "scripts": {
+    "start": "ui5 serve",
+    "test:uiveri5": "uiveri5 webapp/test/e2e/conf.js",
+    "test:wdi5": "wdio run wdio.conf.js",
+    "sonar": "sonar-scanner -Dsonar.junit.reportPaths=target/report"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@ui5/cli": "^4.0.50",
+    "@ui5/uiveri5": "^1.49.12",
+    "wdio-ui5-service": "^3.0.8"
+  }
+}

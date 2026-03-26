@@ -1,0 +1,37 @@
+<mvc:View
+    controllerName="my.app.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m">
+    <Shell>
+        <App id="app">
+            <pages>
+                <Page title="Inventory Management">
+                    <content>
+                        <SearchField 
+                            id="searchField" 
+                            placeholder="Search products..." 
+                            search=".onSearch" 
+                            width="auto" 
+                            class="sapUiSmallMargin" />
+                        
+                        <List id="productList" items="{/Products}" headerText="Products">
+                            <StandardListItem 
+                                title="{Name}" 
+                                description="{ID}" 
+                                icon="sap-icon://product" 
+                                type="Navigation" 
+                                press=".onItemPress" />
+                        </List>
+                        
+                        <Button 
+                            text="Add New Product" 
+                            press=".onAddProduct" 
+                            type="Emphasized" 
+                            class="sapUiSmallMargin" />
+                    </content>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>
