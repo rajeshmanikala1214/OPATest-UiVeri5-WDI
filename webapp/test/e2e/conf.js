@@ -1,7 +1,6 @@
 exports.config = {
     profile: 'integration',
     baseUrl: 'http://localhost:8080/index.html',
-
     reporters: [
         {
             name: 'junit',
@@ -9,11 +8,10 @@ exports.config = {
             reportName: 'uiveri5-results'
         }
     ],
-
     capabilities: [{
         browserName: 'chrome',
         chromeOptions: {
-            binary: process.env.CHROME_BIN || '/ms-playwright/chromium-1145/chrome-linux/chrome',
+            binary: '/usr/bin/google-chrome', 
             args: [
                 '--headless',
                 '--no-sandbox',
@@ -22,6 +20,6 @@ exports.config = {
             ]
         }
     }],
-
-    specs: [ './webapp/test/e2e/*.spec.js' ],
+    // Correct path to your spec files
+    specs: [ 'webapp/test/e2e/*.spec.js' ],
 };
