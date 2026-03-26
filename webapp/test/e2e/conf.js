@@ -15,5 +15,5 @@ exports.config = {
             args: ['--headless', '--no-sandbox', '--disable-dev-shm-usage']
         }
     }],
-    specs: ['*.spec.js']
+    specs: [ './*.spec.js' ],
 };
